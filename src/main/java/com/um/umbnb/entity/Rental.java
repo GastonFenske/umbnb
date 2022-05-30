@@ -13,25 +13,10 @@ public class Rental implements Serializable {
     private Long id;
 
     @Column
-    private String clients_name;
-
-    @Column
-    private String clients_mail;
-
-    @Column
     private Integer clients_id;
 
     @Column
-    private String hosts_name;
-
-    @Column
-    private String hosts_mail;
-
-    @Column
     private Integer hosts_id;
-
-    @Column
-    private String houses_name;
 
     @Column
     private String houses_id;
@@ -42,6 +27,14 @@ public class Rental implements Serializable {
     @Column
     private Integer price;
 
+    @ManyToOne
+    @JoinColumn
+    private House house;
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -49,22 +42,6 @@ public class Rental implements Serializable {
     @Id
     public Long getId() {
         return id;
-    }
-
-    public String getClientsName() {
-        return clients_name;
-    }
-
-    public void setClientsName(String clients_name) {
-        this.clients_name = clients_name;
-    }
-
-    public String getClientsMail() {
-        return clients_mail;
-    }
-
-    public void setClientsMail(String clients_mail) {
-        this.clients_mail = clients_mail;
     }
 
     public Integer getClientsId() {
@@ -75,22 +52,6 @@ public class Rental implements Serializable {
         this.clients_id = clients_id;
     }
 
-    public String getHostsName() {
-        return hosts_name;
-    }
-
-    public void setHostsName(String hosts_name) {
-        this.hosts_name = hosts_name;
-    }
-
-    public String getHostsMail() {
-        return hosts_mail;
-    }
-
-    public void setHostsMail(String hosts_mail) {
-        this.hosts_mail = hosts_mail;
-    }
-
     public Integer getHostsId() {
         return hosts_id;
     }
@@ -99,13 +60,6 @@ public class Rental implements Serializable {
         this.hosts_id = hosts_id;
     }
 
-    public String getHousesName() {
-        return houses_name;
-    }
-
-    public void setHousesName(String houses_name) {
-        this.houses_name = houses_name;
-    }
 
     public String getHousesId() {
         return houses_id;
