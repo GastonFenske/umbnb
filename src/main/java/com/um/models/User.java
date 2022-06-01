@@ -1,10 +1,10 @@
-package com.um.umbnb.entity;
+package com.um.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "user")
 public class User implements Serializable {
 
     //id column (primary key)

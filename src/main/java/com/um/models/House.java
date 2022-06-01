@@ -1,4 +1,4 @@
-package com.um.umbnb.entity;
+package com.um.models;
 
 import javax.persistence.*;
 import java.io.Serializable;

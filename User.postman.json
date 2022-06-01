@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "47b3bc1d-3a24-4093-9188-dad8842774cd",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21204833"
+	},
+	"item": [
+		{
+			"name": "get all user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Umbnb/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 1,\n        \"name\": \"Test\",\n        \"mail\": \"test2@um.com\",\n        \"password\": \"12345\",\n        \"age\": 28,\n        \"sex\": false,\n        \"province\": \"mendoza\",\n        \"type\": true,\n        \"phoneNumber\": \"2604665556\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 2,\n        \"name\": \"T2\",\n        \"mail\": \"2@um.com\",\n        \"password\": \"12345\",\n        \"age\": 28,\n        \"sex\": false,\n        \"province\": \"mendoza\",\n        \"type\": true,\n        \"phoneNumber\": \"2604665556\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Umbnb/user/deleteUser/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"user",
+						"deleteUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

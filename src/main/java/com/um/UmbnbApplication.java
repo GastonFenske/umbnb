@@ -1,4 +1,4 @@
-package com.um.umbnb;
+package com.um;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class UmbnbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UmbnbApplication.class, args);
 	}
-
 }
