@@ -6,14 +6,14 @@ import java.io.Serializable;
 @Entity
 @Table
 public class House implements Serializable {
-    //Coment
+
+    @Column
+    private String name;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
-
-    @Column
-    private String name;
 
     @Column
     private String address;
