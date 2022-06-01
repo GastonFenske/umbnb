@@ -12,28 +12,23 @@ public class Rental implements Serializable {
     @Column
     private Long id;
 
-    @Column
-    private Integer clients_id;
+    @ManyToOne
+    @JoinColumn
+    private House house_id;
 
-    @Column
-    private Integer hosts_id;
+    @ManyToOne
+    @JoinColumn
+    private User client_id;
 
-    @Column
-    private String houses_id;
+    @ManyToOne
+    @JoinColumn
+    private User host_id;
 
     @Column
     private Date date;
 
     @Column
     private Integer price;
-
-    @ManyToOne
-    @JoinColumn
-    private House house;
-
-    @ManyToOne
-    @JoinColumn
-    private User user;
 
     public void setId(Long id) {
         this.id = id;
@@ -44,29 +39,28 @@ public class Rental implements Serializable {
         return id;
     }
 
-    public Integer getClientsId() {
-        return clients_id;
+    public House getHouseId() {
+        return house_id;
     }
 
-    public void setClientsId(Integer clients_id) {
-        this.clients_id = clients_id;
+    public void setHouseId(House house_id) {
+        this.house_id = house_id;
     }
 
-    public Integer getHostsId() {
-        return hosts_id;
+    public User getClientId() {
+        return client_id;
     }
 
-    public void setHostsId(Integer hosts_id) {
-        this.hosts_id = hosts_id;
+    public void setClientId(User client_id) {
+        this.client_id = client_id;
     }
 
-
-    public String getHousesId() {
-        return houses_id;
+    public User getHostId() {
+        return host_id;
     }
 
-    public void setHousesId(String houses_id) {
-        this.houses_id = houses_id;
+    public void setHostId(User host_id) {
+        this.host_id = host_id;
     }
 
     public Date getDate() {
