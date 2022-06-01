@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table
 public class House implements Serializable {
-
+    //Coment
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
