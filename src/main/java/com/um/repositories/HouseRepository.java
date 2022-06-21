@@ -1,12 +1,13 @@
 
 
-package com.example.demo.repositories;
+
+package com.um.repositories;
 
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.example.demo.models.Casa;
+import com.um.models.House;
 
 import javax.transaction.Transactional;
 
@@ -28,23 +29,23 @@ public class HouseRepository implements BaseRepository {
     public Object getOne(String model, Long id){
         // String query = String.format("FROM Usuario WHERE id = %2d", id);
         // return entityManager.createQuery(query).getSingleResult();
-        Casa casa = entityManager.find(Casa.class, id);
-        return casa;
+        House house = entityManager.find(House.class, id);
+        return house;
     }
 
     @Override
     public List<Object> getAll(String model){
-        String query = String.format("FROM Casa");
-        List<Object> casas = entityManager.createQuery(query).getResultList();
-        // List<Casa> casas = entityManager.
-        // return (List<Casa>) entityManager.createQuery(query).getResultList();
-        return casas;
+        String query = String.format("FROM House");
+        List<Object> houses = entityManager.createQuery(query).getResultList();
+        // List<House> houses = entityManager.
+        // return (List<House>) entityManager.createQuery(query).getResultList();
+        return houses;
     }
 
     @Override
     public void create(Object model){
-        Casa casa = (Casa) model;
-        entityManager.merge(casa);
+        House house = (House) model;
+        entityManager.merge(house);
     }
 
 }

@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+# /main/java/com/um/resources/application.properties
+/umbnb/src/main/resources/application.properties

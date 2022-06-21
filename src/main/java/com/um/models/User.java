@@ -25,8 +25,6 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    // @OneToMany(mappedBy="userOwner", cascade=CascadeType.ALL, orphanRemoval=true)
-    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<House> houses;
 
@@ -42,12 +40,18 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "sex")
+    private Boolean sex;
+
+    @Column(name = "province")
+    private String province;
+
     @Column(name = "password")
     private String password;
 
-    // @Id
-    // @Column(name = "USER_ID")
-    // @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -56,27 +60,27 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
+    public String getName() {
         return name;
     }
 
-    public void setNombre(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getApellido() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setApellido(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-    public Integer getEdad() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setEdad(Integer age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -86,6 +90,30 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phone_number) {
+        this.phoneNumber = phone_number;
+    }
+
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getPassword() {

@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 
 import java.io.Serializable;
 
-// @Data
 @Entity
 @Table(name = "houses")
 public class House implements Serializable {
@@ -36,10 +35,10 @@ public class House implements Serializable {
     private String address;
 
     @Column(name = "rooms_number")
-    private String rooms_number;
+    private Integer rooms_number;
 
     @Column(name = "persons_number")
-    private String persons_number;
+    private Integer persons_number;
 
     @Column(name = "review")
     private Integer review;
@@ -80,19 +79,19 @@ public class House implements Serializable {
         this.address = address;
     }
 
-    public String getRoomsNumber() {
+    public Integer getRoomsNumber() {
         return rooms_number;
     }
 
-    public void setRoomsNumber(String rooms_number) {
+    public void setRoomsNumber(Integer rooms_number) {
         this.rooms_number = rooms_number;
     }
 
-    public String getPersonsNumber() {
+    public Integer getPersonsNumber() {
         return persons_number;
     }
 
-    public void setPersonNumber(String persons_number) {
+    public void setPersonsNumber(Integer persons_number) {
         this.persons_number = persons_number;
     }
 
@@ -104,11 +103,11 @@ public class House implements Serializable {
         this.review = review;
     }
 
-    public Integer getPrecio() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrecio(Integer price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
