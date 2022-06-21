@@ -1,69 +1,91 @@
+
 package com.um.models;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import javax.persistence.OneToMany;
+
+import javax.persistence.CascadeType;
 
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
-
-    //id column (primary key)
+@Table(name = "users")
+public class User {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
+    // @OneToMany(mappedBy="userOwner", cascade=CascadeType.ALL, orphanRemoval=true)
+    // @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+    @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
+    private List<House> houses;
+
+    @Column(name = "name")
     private String name;
 
-    @Column
-    private String mail;
+    @Column(name = "lastname")
+    private String lastname;
 
-    @Column
-    private String password;
-
-    @Column
+    @Column(name = "age")
     private Integer age;
 
-    @Column
-    private String phone_number;
+    @Column(name = "email")
+    private String email;
 
+    @Column(name = "password")
+    private String password;
 
-    @Column
-    private Boolean sex;
-
-    @Column
-    private String province;
-
-    @Column
-    private Boolean type;
-
-
-    //Seter of id
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    //Geter of id
-    @Id
+    // @Id
+    // @Column(name = "USER_ID")
+    // @GeneratedValue
     public Long getId() {
         return id;
     }
 
-    public String getName() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setNombre(String name) {
         this.name = name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getApellido() {
+        return lastname;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setApellido(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Integer getEdad() {
+        return age;
+    }
+
+    public void setEdad(Integer age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -74,43 +96,4 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getPhoneNumber() {
-        return phone_number;
-    }
-
-    public void setPhoneNumber(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public Boolean getSex() {
-        return sex;
-    }
-
-    public void setSex(Boolean sex) {
-        this.sex = sex;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public Boolean getType() {
-        return type;
-    }
-
-    public void setType(Boolean type) {
-        this.type = type;
-    }
 }

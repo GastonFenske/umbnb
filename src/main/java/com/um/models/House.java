@@ -1,45 +1,67 @@
 package com.um.models;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
 import java.io.Serializable;
 
+// @Data
 @Entity
-@Table
+@Table(name = "houses")
 public class House implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "owner")
+    private User owner;
+
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "address")
     private String address;
 
-    @Column
-    private Integer rooms_number;
+    @Column(name = "rooms_number")
+    private String rooms_number;
 
-    @Column
-    private Integer persons_number;
+    @Column(name = "persons_number")
+    private String persons_number;
 
-    @Column
+    @Column(name = "review")
     private Integer review;
 
-    @Column
-    private Boolean type;
-
-    @Column
+    @Column(name = "price")
     private Integer price;
+
+
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
-    public Long getId() {
-        return id;
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public String getName() {
@@ -50,27 +72,27 @@ public class House implements Serializable {
         this.name = name;
     }
 
-    public String getAddress() {
+    public String getAdress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAdress(String address) {
         this.address = address;
     }
 
-    public Integer getRoomsNumber() {
+    public String getRoomsNumber() {
         return rooms_number;
     }
 
-    public void setRoomsNumber(Integer rooms_number) {
+    public void setRoomsNumber(String rooms_number) {
         this.rooms_number = rooms_number;
     }
 
-    public Integer getPersonsNumber() {
+    public String getPersonsNumber() {
         return persons_number;
     }
 
-    public void setPersonsNumber(Integer persons_number) {
+    public void setPersonNumber(String persons_number) {
         this.persons_number = persons_number;
     }
 
@@ -82,19 +104,13 @@ public class House implements Serializable {
         this.review = review;
     }
 
-    public Boolean getType() {
-        return type;
-    }
-
-    public void setType(Boolean type) {
-        this.type = type;
-    }
-
-    public Integer getPrice() {
+    public Integer getPrecio() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrecio(Integer price) {
         this.price = price;
     }
+
+
 }
