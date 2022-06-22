@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.catalina.manager.host.HTMLHostManagerServlet;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,6 @@ public class User {
     // @OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
     // private List<Rental> rentals;
 
-
     @Column(name = "name")
     private String name;
 
@@ -52,6 +52,9 @@ public class User {
 
     @Column(name = "province")
     private String province;
+
+    @Column(name = "host", columnDefinition = "boolean default false")
+    private Boolean host;
 
     @Column(name = "password")
     private String password;
@@ -118,6 +121,14 @@ public class User {
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public Boolean getHost() {
+        return host;
+    }
+
+    public void setHost(Boolean host) {
+        this.host = host;
     }
 
     public String getPassword() {

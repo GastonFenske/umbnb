@@ -1,20 +1,52 @@
 package com.um.repositories;
 import com.um.models.User;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import javax.transaction.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import java.util.List;
 
 @Repository
-public interface UserRepository extends BaseRepository {
+@Transactional
+public class UserRepository implements BaseRepository {
 
-    List<User> getUsers();
+    @PersistenceContext
+    private EntityManager entityManager;
+    
+    @Override
+    public Object getOne(Object model, Long id){
 
-    // void eliminar(Long id);
+        User user = entityManager.find(User.class, id);
+        return user;
+    }
 
-    // void registrar(Usuario usuario);
+    @Override
+    public List<Object> getAll(Object model){
+        String query = String.format("FROM User");
+        List<Object> users = entityManager.createQuery(query).getResultList();
+        return users;
+    }
 
-    // Usuario obtenerUsuarioPorCredenciales(Usuario usuario);
+    @Override
+    public void create(Object model){
+        User user = (User) model;
+        entityManager.merge(user);
+    }
+
+    @Override
+    public void deleteOne(Object model){
+        User user = (User) model;
+        entityManager.remove(user);
+    }
+
+    @Override
+    public void update(Object model){
+        User user = (User) model;
+        entityManager.merge(user);
+    }
 
 }
 
