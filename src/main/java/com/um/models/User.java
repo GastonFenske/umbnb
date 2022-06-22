@@ -25,8 +25,12 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
-    private List<House> houses;
+    // @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
+    // private List<House> houses;
+
+    // @OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
+    // private List<Rental> rentals;
+
 
     @Column(name = "name")
     private String name;
