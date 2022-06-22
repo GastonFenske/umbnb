@@ -1,6 +1,5 @@
 package com.um.controller;
 
-import com.um.models.House;
 import com.um.models.User;
 import com.um.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
