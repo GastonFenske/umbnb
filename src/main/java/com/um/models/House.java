@@ -32,6 +32,15 @@ public class House implements Serializable {
     private String name;
 
     @Column(name = "address")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    @Column
+    private Long id;
+  
+    @Column
+    private String name;
+  
+    @Column
     private String address;
 
     @Column(name = "rooms_number")
