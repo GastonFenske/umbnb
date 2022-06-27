@@ -18,7 +18,6 @@ public class UserRepository implements BaseRepository {
     
     @Override
     public Object getOne(Object model, Long id){
-
         User user = entityManager.find(User.class, id);
         return user;
     }
