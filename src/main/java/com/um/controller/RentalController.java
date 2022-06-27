@@ -37,15 +37,8 @@ public class RentalController {
 
     @PutMapping("/rental/{id}")
     public void updateUser(@PathVariable Long id, @RequestBody Rental rental){
-        Rental current_rental = (Rental) rentalRepository.getOne(Rental.class, id);
-        current_rental.setDate(rental.getDate());
-        current_rental.setPrice(rental.getPrice());
-        current_rental.setClient(rental.getClient());
-        current_rental.setHost(rental.getHost());
-        current_rental.setHouse(rental.getHouse());
-
-
-        rentalRepository.update(current_rental);
+        rental.setId(id);
+        rentalRepository.update(rental);
     }
 
 }

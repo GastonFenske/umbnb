@@ -38,16 +38,9 @@ public class HouseController {
 
     @PutMapping("/house/{id}")
     public void updateHouse(@PathVariable Long id, @RequestBody House house){
-        House current_house = (House) houseRepository.getOne(House.class, id);
-        current_house.setName(house.getName());
-        current_house.setAddress(house.getAddress());
-        current_house.setPrice(house.getPrice());
-        current_house.setPersonsNumber(house.getPersonsNumber());
-        current_house.setRoomsNumber(house.getRoomsNumber());
-        current_house.setReview(house.getReview());
-        current_house.setOwner(house.getOwner());
+        house.setId(id);
+        houseRepository.update(house);
 
-        houseRepository.update(current_house);
     }
 
 
