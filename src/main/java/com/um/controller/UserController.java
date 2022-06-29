@@ -3,33 +3,44 @@ package com.um.controller;
 import com.um.models.User;
 import com.um.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
+
+
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+    @RequestMapping("/users")
+    public List<Object> getUsers(){
+        return (List<Object>) userRepository.getAll(User.class);
     }
 
-    @PostMapping
-    public void addUser(@RequestBody User user) {
-        userRepository.save(user);
+    @PostMapping("/users")
+    public void createUser(@RequestBody User user){
+        userRepository.create(user);
     }
-    @PutMapping
-    public void updateUser(@RequestBody User user) {
-        userRepository.save(user);
+
+    @RequestMapping("/user/{id}")
+    public User getUser(@PathVariable Long id){
+        return (User) userRepository.getOne(User.class, id);
     }
-    @DeleteMapping(value="/deleteUser/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) {
-        userRepository.deleteById(id);
-        return ResponseEntity.ok("User deleted successfully");
+
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable Long id){
+        User user = (User) userRepository.getOne(User.class, id);
+        userRepository.deleteOne(user);
     }
+
+    @PutMapping("/user/{id}")
+    public void updateUser(@PathVariable Long id, @RequestBody User user){
+        user.setId(id);
+        userRepository.update(user);
+    }
+
+
 }
+

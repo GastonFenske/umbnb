@@ -1,53 +1,70 @@
+
 package com.um.models;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.apache.catalina.manager.host.HTMLHostManagerServlet;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import javax.persistence.OneToMany;
+
+import javax.persistence.CascadeType;
 
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
-
-    //id column (primary key)
+@Table(name = "users")
+public class User {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
+    // @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
+    // private List<House> houses;
+
+    // @OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
+    // private List<Rental> rentals;
+
+    @Column(name = "name")
     private String name;
 
-    @Column
-    private String mail;
+    @Column(name = "lastname")
+    private String lastname;
 
-    @Column
-    private String password;
-
-    @Column
+    @Column(name = "age")
     private Integer age;
 
-    @Column
-    private String phone_number;
+    @Column(name = "email")
+    private String email;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column
+    @Column(name = "sex")
     private Boolean sex;
 
-    @Column
+    @Column(name = "province")
     private String province;
 
-    @Column
-    private Boolean type;
+    @Column(name = "host", columnDefinition = "boolean default false")
+    private Boolean host;
 
+    @Column(name = "password")
+    private String password;
 
-    //Seter of id
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    //Geter of id
-    @Id
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -58,20 +75,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public Integer getAge() {
@@ -82,12 +91,20 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPhoneNumber() {
-        return phone_number;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phone_number) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 
     public Boolean getSex() {
@@ -106,11 +123,20 @@ public class User implements Serializable {
         this.province = province;
     }
 
-    public Boolean getType() {
-        return type;
+    public Boolean getHost() {
+        return host;
     }
 
-    public void setType(Boolean type) {
-        this.type = type;
+    public void setHost(Boolean host) {
+        this.host = host;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }
