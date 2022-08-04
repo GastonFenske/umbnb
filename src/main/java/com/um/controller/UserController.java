@@ -1,8 +1,11 @@
 package com.um.controller;
 
+import com.um.models.Rental;
 import com.um.models.User;
 import com.um.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +18,8 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+    public Page<User> getAllUsers(Integer page, Integer size) {
+        return userRepository.findAll(PageRequest.of(page, size));
     }
 
     @PostMapping
