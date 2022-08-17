@@ -1,45 +1,67 @@
 package com.um.models;
 
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "houses")
 public class House implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
+    @JoinColumn(name = "owner")
+    private User owner;
+
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "address")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String address;
 
-    @Column
+    @Column(name = "rooms_number")
     private Integer rooms_number;
 
-    @Column
+    @Column(name = "persons_number")
     private Integer persons_number;
 
-    @Column
+    @Column(name = "review")
     private Integer review;
 
-    @Column
-    private Boolean type;
-
-    @Column
+    @Column(name = "price")
     private Integer price;
+
+
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
-    public Long getId() {
-        return id;
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public String getName() {
@@ -82,14 +104,6 @@ public class House implements Serializable {
         this.review = review;
     }
 
-    public Boolean getType() {
-        return type;
-    }
-
-    public void setType(Boolean type) {
-        this.type = type;
-    }
-
     public Integer getPrice() {
         return price;
     }
@@ -97,4 +111,5 @@ public class House implements Serializable {
     public void setPrice(Integer price) {
         this.price = price;
     }
+
 }

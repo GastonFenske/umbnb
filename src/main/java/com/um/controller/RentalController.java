@@ -1,6 +1,5 @@
 package com.um.controller;
 
-import com.um.models.House;
 import com.um.models.Rental;
 import com.um.repositories.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+;
 
 @RestController
 @RequestMapping("/rental")
@@ -35,3 +33,4 @@ public class RentalController {
         return ResponseEntity.ok("Rental deleted successfully");
     }
 }
+
