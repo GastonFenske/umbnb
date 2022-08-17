@@ -33,4 +33,5 @@ public class HouseController {
         houseRepository.deleteById(id);
         return ResponseEntity.ok("House deleted successfully");
     }
+
 }
