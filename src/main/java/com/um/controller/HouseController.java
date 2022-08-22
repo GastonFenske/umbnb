@@ -3,6 +3,12 @@ package com.um.controller;
 import com.um.models.House;
 import com.um.repositories.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,14 +21,20 @@ public class HouseController {
     private HouseRepository houseRepository;
 
 
-    @RequestMapping("/houses")
-    public List<Object> getHouses(){
-        return (List<Object>) houseRepository.getAll(House.class);
-    }
+    @GetMapping
+    public Page<House> getAllHouses(Integer page, Integer size) {
+        return houseRepository.findAll(PageRequest.of(page, size));
+
+
+    // @RequestMapping("/houses")
+    // public List<Object> getHouses(){
+    //     return (List<Object>) houseRepository.getAll(House.class);
+    // }
 
     @PostMapping("/houses")
     public void createHouse(@RequestBody House house){
         houseRepository.create(house);
+
     }
 
     @RequestMapping("/house/{id}")

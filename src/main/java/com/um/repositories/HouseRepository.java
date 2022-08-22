@@ -5,6 +5,8 @@ import javax.persistence.PersistenceContext;
 
 import com.um.models.House;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -12,6 +14,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+
+public interface HouseRepository extends JpaRepository<House, Long> {
+}
+
 @Transactional
 public class HouseRepository implements BaseRepository {
 

@@ -1,5 +1,8 @@
 package com.um.repositories;
 import com.um.models.Rental;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -9,6 +12,9 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+
+public interface RentalRepository extends JpaRepository<Rental, Long> {
+
 @Transactional
 public class RentalRepository implements BaseRepository {
 
