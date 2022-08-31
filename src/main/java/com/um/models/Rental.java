@@ -1,14 +1,6 @@
 package com.um.models;
 
 import javax.persistence.*;
-// import javax.persistence.Entity;
-// import javax.persistence.GenerationType;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.Table;
-// import javax.persistence.Id;
-// import javax.persistence.JoinColumn;
-// import javax.persistence.ManyToOne;
-// import javax.persistence.Column;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,15 +12,6 @@ public class Rental implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-    // @Column(name = "client_id")
-    // private Integer client_id;
-
-    // @Column(name = "host_id")
-    // private Integer host_id;
-
-    // @Column(name = "house_id")
-    // private Integer house_id;
 
     @Column(name = "date")
     private Date date;
@@ -79,31 +62,6 @@ public class Rental implements Serializable {
     public void setHouse(House house) {
         this.house = house;
     }
-
-    // public Integer getClientId() {
-    //     return client_id;
-    // }
-
-    // public void setClientId(Integer client_id) {
-    //     this.client_id = client_id;
-    // }
-
-    // public Integer getHostId() {
-    //     return host_id;
-    // }
-
-    // public void setHostId(Integer host_id) {
-    //     this.host_id = host_id;
-    // }
-
-
-    // public Integer getHouseId() {
-    //     return house_id;
-    // }
-
-    // public void setHouseId(Integer house_id) {
-    //     this.house_id = house_id;
-    // }
 
     public Date getDate() {
         return date;

@@ -22,8 +22,6 @@ public class House implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @ManyToOne
     @JoinColumn(name = "owner")
     private User owner;
@@ -32,15 +30,6 @@ public class House implements Serializable {
     private String name;
 
     @Column(name = "address")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    
-    @Column
-    private Long id;
-  
-    @Column
-    private String name;
-  
-    @Column
     private String address;
 
     @Column(name = "rooms_number")

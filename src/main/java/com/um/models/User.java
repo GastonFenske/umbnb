@@ -1,21 +1,11 @@
-
 package com.um.models;
-
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.apache.catalina.manager.host.HTMLHostManagerServlet;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import javax.persistence.OneToMany;
-
-import javax.persistence.CascadeType;
 
 @Entity
 @Table(name = "users")
@@ -25,12 +15,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-    // @OneToMany(mappedBy="owner", cascade=CascadeType.ALL, orphanRemoval=true)
-    // private List<House> houses;
-
-    // @OneToMany(mappedBy="client", cascade=CascadeType.ALL, orphanRemoval=true)
-    // private List<Rental> rentals;
 
     @Column(name = "name")
     private String name;
