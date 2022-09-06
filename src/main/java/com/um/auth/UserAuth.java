@@ -22,7 +22,6 @@ public class UserAuth {
     Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
 
     public User userLogged(User user){
-        // User current_user = (User) userRepository.getUserByEmail(user);
         User current_user = (User) userRepository.getUserByEmail(user.getEmail());
 
         String passwordHash = current_user.getPassword();
@@ -51,7 +50,6 @@ public class UserAuth {
     }
 
     public ResponseUtil verifyEmailDuplicated(User user){
-        // User new_user = (User) userRepository.getUserByEmail(user);
         User new_user = (User) userRepository.getUserByEmail(user.getEmail());
 
         if(new_user != null){
@@ -60,10 +58,9 @@ public class UserAuth {
 
         String password = this.generatePasswordHash(user.getPassword());
         user.setPassword(password);
-        // userRepository.create(user);
         userRepository.save(user);
 
-        // user.setPassword(null);
+        user.setPassword(null);
         return new ResponseUtil("User succesfully created", true, 200, null);
     }
 
