@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/house")
@@ -20,11 +22,31 @@ public class HouseController {
         return houseRepository.findAll(PageRequest.of(page, size));
     }
 
+    @GetMapping(value="/getHouseById/{id}")
+    public House getHouseById(@PathVariable("id") Long id){
+        return houseRepository.getHouseById(id);
+    }
+
+    @GetMapping(value="/getAllHousesByProvince")
+    public List<House> getAllHousesByProvince(@RequestBody House house){
+        return houseRepository.getAllHousesByProvince(house.getProvince());
+    }
+
+    @GetMapping(value="/getAllHousesByCity")
+    public List<House> getAllHousesByCity(@RequestBody House house){
+        return houseRepository.getAllHousesByCity(house.getCity());
+    }
+
+    @GetMapping(value="/getAllHousesByOwnerId/{id}")
+    public List<House> getAllHouseByOwnerId(@PathVariable("id") Long id){
+        return houseRepository.getAllHousesByOwnerId(id);
+    }
+
     @PostMapping
     public void addHouse(@RequestBody House house) {
         houseRepository.save(house);
     }
-    @PutMapping
+    @PutMapping(value="/{id}")
     public void updateHouse(@RequestBody House house) {
         houseRepository.save(house);
     }

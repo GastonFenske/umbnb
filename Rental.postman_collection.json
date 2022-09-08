@@ -1,38 +1,38 @@
 {
 	"info": {
-		"_postman_id": "47b3bc1d-3a24-4093-9188-dad8842774cd",
-		"name": "User",
+		"_postman_id": "04433161-3dc5-49e2-8dbb-ac188cde1f27",
+		"name": "Rental",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21204833"
+		"_exporter_id": "21347317"
 	},
 	"item": [
 		{
-			"name": "get all user",
+			"name": "get all rental",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/Umbnb/user",
+					"raw": "localhost:8080/Umbnb/rental",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"Umbnb",
-						"user"
+						"rental"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create user",
+			"name": "Create rental",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\n        \"id\": 1,\n        \"name\": \"Test\",\n        \"mail\": \"test2@um.com\",\n        \"password\": \"12345\",\n        \"age\": 28,\n        \"sex\": false,\n        \"province\": \"mendoza\",\n        \"type\": true,\n        \"phoneNumber\": \"2604665556\"\n    }",
+					"raw": "    {\n        \"id\":1,\n        \"clientsId\": 1,\n        \"hostsId\": 1,\n        \"housesId\": 1,\n        \"date\": \"2022-05-29\",\n        \"price\": 10\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,27 +40,27 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/Umbnb/user",
+					"raw": "localhost:8080/Umbnb/rental",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"Umbnb",
-						"user"
+						"rental"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Update user",
+			"name": "Update rental",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\n        \"id\": 2,\n        \"name\": \"T2\",\n        \"mail\": \"2@um.com\",\n        \"password\": \"12345\",\n        \"age\": 28,\n        \"sex\": false,\n        \"province\": \"mendoza\",\n        \"type\": true,\n        \"phoneNumber\": \"2604665556\"\n    }",
+					"raw": "    {\n        \"id\": 1,\n        \"clients_id\": 1,\n        \"hosts_id\": 1,\n        \"houses_id\": 1,\n        \"date\": \"2022-05-29\",\n        \"price\": 10\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,34 +68,34 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/Umbnb/user",
+					"raw": "localhost:8080/Umbnb/rental",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"Umbnb",
-						"user"
+						"rental"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Delete user",
+			"name": "Delete rental",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/Umbnb/user/deleteUser/1",
+					"raw": "localhost:8080/Umbnb/rental/deleteRental/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"Umbnb",
-						"user",
-						"deleteUser",
+						"rental",
+						"deleteRental",
 						"1"
 					]
 				}
