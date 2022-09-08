@@ -44,6 +44,11 @@ public class House implements Serializable {
     @Column(name = "price")
     private Integer price;
 
+    @Column(name = "province")
+    private String province;
+
+    @Column(name = "city")
+    private String city;
 
     public Long getId() {
         return id;
@@ -109,5 +114,19 @@ public class House implements Serializable {
         this.price = price;
     }
 
+    public String getProvince() {
+        return province;
+    }
 
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

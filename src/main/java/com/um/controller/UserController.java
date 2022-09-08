@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping
     public Page<User> getAllUsers(Integer page, Integer size) {
         return userRepository.findAll(PageRequest.of(page, size));
     }
@@ -36,7 +37,7 @@ public class UserController {
         System.out.println("ENTRA ACAAA");
         return userAuth.verifyEmailDuplicated(user);
     }
-    @PutMapping
+    @PutMapping(value="{/id}")
     public void updateUser(@RequestBody User user) {
         userRepository.save(user);
     }
