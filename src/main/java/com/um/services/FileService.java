@@ -19,7 +19,7 @@ public class FileService {
     private static String uploadFile(File file, String fileName) throws IOException {
         BlobId blobId = BlobId.of("umbnb-demo.appspot.com", fileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType("image/png").build();
-        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("/home/ollyxs/repos/umbnb/src/main/resources/serviceAccountKey.json"));
+        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("/home/ollyxs/Descargas/serviceAccountKey.json"));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         storage.create(blobInfo, Files.readAllBytes(file.toPath()));
         return String.format("https://console.firebase.google.com/project/umbnb-demo/storage/umbnb-demo.appspot.com/files/o/%s?alt=media",
@@ -58,7 +58,7 @@ public class FileService {
         String destFileName = UUID.randomUUID().toString().concat(getExtension(fileName));
         String destFilePath = "/home/ollyxs/Imágenes/" + destFileName;
 
-        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("/home/ollyxs/repos/umbnb/src/main/resources/serviceAccountKey.json"));
+        Credentials credentials = GoogleCredentials.fromStream(new FileInputStream("/home/ollyxs/Descargas/serviceAccountKey.json"));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         Blob blob = storage.get(BlobId.of("umbnb-demo.appspot.com", fileName));
         blob.downloadTo(Paths.get(destFilePath));
