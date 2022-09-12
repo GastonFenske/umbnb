@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "1bf00283-2dd2-46fb-bae6-46584516ed48",
+		"name": "House",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21347317"
+	},
+	"item": [
+		{
+			"name": "get all houses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Umbnb/house?page=0&size=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get house by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Umbnb/house/getHouseById/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house",
+						"getHouseById",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get house by province",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"province\": \"Mendoza\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/house/getAllHousesByProvince",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house",
+						"getAllHousesByProvince"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get house by city",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"city\":\"Alvear\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/house/getAllHousesByCity",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house",
+						"getAllHousesByCity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get house by owner id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create house",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Department\",\n        \"owner\": {\n            \"id\": 2,\n            \"name\": \"Tato\",\n            \"lastname\": \"Beato\",\n            \"age\": 28,\n            \"email\": \"tato@um.com\",\n            \"phoneNumber\": \"2604665556\",\n            \"sex\": false,\n            \"province\": \"mendoza\",\n            \"host\": false,\n            \"password\": \"12345\"\n        } ,\n        \"address\": \"españa 234\",\n        \"roomsNumber\": 4,\n        \"personsNumber\": 8,\n        \"review\": 10,\n        \"type\": true,\n        \"price\": \"2606\",\n        \"province\":\"Mendoza\",\n        \"city\": \"Alvear\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/house",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update house",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"name\": \"Department\",\n        \"owner\": {\n            \"id\": 2,\n            \"name\": \"Tato\",\n            \"lastname\": \"Beato\",\n            \"age\": 28,\n            \"email\": \"tato@um.com\",\n            \"phoneNumber\": \"2604665556\",\n            \"sex\": false,\n            \"province\": \"mendoza\",\n            \"host\": false,\n            \"password\": \"12345\"\n        } ,\n        \"address\": \"españa 234\",\n        \"roomsNumber\": 4,\n        \"personsNumber\": 8,\n        \"review\": 10,\n        \"type\": true,\n        \"price\": \"2606\",\n        \"province\":\"Mendoza\",\n        \"city\": \"Alvear\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Umbnb/house/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete house",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Umbnb/house/deleteHouse/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Umbnb",
+						"house",
+						"deleteHouse",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

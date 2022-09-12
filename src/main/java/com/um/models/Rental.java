@@ -5,62 +5,62 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "rentals")
 public class Rental implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn
-    private House house_id;
-
-    @ManyToOne
-    @JoinColumn
-    private User client_id;
-
-    @ManyToOne
-    @JoinColumn
-    private User host_id;
-
-    @Column
+    @Column(name = "date")
     private Date date;
 
-    @Column
+    @Column(name = "price")
     private Integer price;
+
+    @ManyToOne
+    @JoinColumn(name = "house")
+    private House house;
+
+    @ManyToOne
+    @JoinColumn(name = "client")
+    private User client;
+
+    @ManyToOne
+    @JoinColumn(name = "host")
+    private User host;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
 
-    public House getHouseId() {
-        return house_id;
+    public User getClient() {
+        return client;
     }
 
-    public void setHouseId(House house_id) {
-        this.house_id = house_id;
+    public void setClient(User client) {
+        this.client = client;
     }
 
-    public User getClientId() {
-        return client_id;
+    public User getHost() {
+        return host;
     }
 
-    public void setClientId(User client_id) {
-        this.client_id = client_id;
+    public void setHost(User host) {
+        this.host = host;
     }
 
-    public User getHostId() {
-        return host_id;
+    public House getHouse() {
+        return house;
     }
 
-    public void setHostId(User host_id) {
-        this.host_id = host_id;
+    public void setHouse(House house) {
+        this.house = house;
     }
 
     public Date getDate() {
