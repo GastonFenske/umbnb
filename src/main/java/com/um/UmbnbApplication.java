@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class UmbnbApplication {
 
 	public static void main(String[] args) {
+		new FirebaseAppInitialization();
 		SpringApplication.run(UmbnbApplication.class, args);
 	}
 }
