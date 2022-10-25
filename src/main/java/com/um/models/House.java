@@ -50,6 +50,9 @@ public class House implements Serializable {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "image")
+    private String image;
+
     public Long getId() {
         return id;
     }
@@ -128,5 +131,13 @@ public class House implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -74,4 +74,6 @@ spring.jpa.hibernate.ddl-auto=update
 logging.level.org.hibernate.SQL=debug
 server.port=${PORT:8080}
 ```
+### Crearse una cuenta en [firebase](https://firebase.google.com/), entramos a consola y nos dirigimos a la configuración del proyecto, buscamos cuentas de servicios y generamos una nueva clave privada del firebase admin SDK
 
+### Colocar el archivo json en la ruta src/main/resources/ con el nombre serviceAccountKey.json
