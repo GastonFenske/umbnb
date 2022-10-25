@@ -239,4 +239,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#Firebase Credentials
+src/main/resource/serviceAccountKey.json
+
 # End of https://www.toptal.com/developers/gitignore/api/java,macos,windows,linux,intellij,visualstudiocode

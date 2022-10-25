@@ -28,6 +28,7 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -51,11 +52,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency>
 
+		<dependency>
+			<groupId>com.google.firebase</groupId>
+			<artifactId>firebase-admin</artifactId>
+			<version>8.1.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.19</version>
+			<version>8.0.30</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -99,4 +106,31 @@
 		</plugins>
 	</build>
 
+
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-context</artifactId>
+				<version>1.27.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.errorprone</groupId>
+				<artifactId>error_prone_annotations</artifactId>
+				<version>2.3.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>29.0-android</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
 </project>
