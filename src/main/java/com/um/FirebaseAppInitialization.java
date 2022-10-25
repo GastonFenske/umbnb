@@ -14,7 +14,7 @@ import java.util.UUID;
 public class FirebaseAppInitialization {
 
     public static FirebaseApp main(String[] args) throws IOException {
-        FileInputStream refreshToken = new FileInputStream("/home/ollyxs/repos/umbnb/src/main/resources/serviceAccountKey.json");
+        FileInputStream refreshToken = new FileInputStream("src/main/resources/serviceAccountKey.json");
 
         FirebaseOptions.Builder builder = FirebaseOptions.builder();
         builder.setProjectId("umbnb-demo");
